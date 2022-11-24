@@ -1,4 +1,8 @@
-Name,Speed,Play-style
-Mario,Fast,Combo
-Luigi,Slow,Combo
-Pica,Fast,Special
+Name,Won,Played,Lost
+Mario,8,20,12
+Luigi,2,20,18
+Pica,9,20,11
+Link,4,20,16
+Bowser,8,20,12
+Fox,16,20,4
+Cloud,19,20,1
