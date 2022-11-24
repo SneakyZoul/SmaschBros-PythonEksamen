@@ -60,17 +60,16 @@ def overall_plotting():
     playLine = data['Played'].tolist()
     lostLine = data['Lost'].tolist()
 
-    fig = plt.figure()
-    # ax.bar(x, winLine, color='g', width=0.25)
-    # ax.bar(x, playLine, color='b', width=0.25)
-    # ax.bar(x, lostLine, color='r', width=0.25)
-    # plt.show()
-
     plt.bar(x - 0.2, winLine, 0.2, color="g", label="Won")
     plt.bar(x, playLine, 0.2, color="b", label="Played")
     plt.bar(x + 0.2, lostLine, 0.2, color="r", label="Lost")
+
+    plt.ylabel("Amount")
+    plt.xlabel("Character Name")
+    plt.title("Tournament Data")
     plt.legend(loc="upper right")
     plt.xticks(x, names)
+
     plt.show()
 
 
