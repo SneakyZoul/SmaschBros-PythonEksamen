@@ -5,12 +5,12 @@ import ShowingData as gd
 
 
 
-def plottingdata():
+def plottingdata(data):
     #Putting the right data in a varibel
-    data = gd.fetchingData(gd.ldata)
+    data = gd.fetchingData(data)
     #setting the right data
-    data1 = data['first_name']
-    data2 = data['ged']
+    data1 = data['Name']
+    data2 = data['Play_style']
 
     y_value = data1
     x_value = data2
