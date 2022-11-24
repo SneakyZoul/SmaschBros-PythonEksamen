@@ -1,7 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
-import seaborn as sns
 import HadlingData.GettingData as gd
 
 
@@ -60,9 +59,9 @@ def overall_plotting():
     playLine = data['Played'].tolist()
     lostLine = data['Lost'].tolist()
 
-    plt.bar(x - 0.2, winLine, 0.2, color="g", label="Won")
-    plt.bar(x, playLine, 0.2, color="b", label="Played")
-    plt.bar(x + 0.2, lostLine, 0.2, color="r", label="Lost")
+    plt.bar(x - 0.2, winLine, 0.2, color="#b2e061", edgecolor="#000000", label="Won")
+    plt.bar(x, playLine, 0.2, color="#7eb0d5", edgecolor="#000000", label="Played")
+    plt.bar(x + 0.2, lostLine, 0.2, color="#fd7f6f",edgecolor="#000000", label="Lost")
 
     plt.ylabel("Amount")
     plt.xlabel("Character Name")
