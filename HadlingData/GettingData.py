@@ -6,12 +6,12 @@ data = pd.read_csv('../Data/students.csv')
 ldata = data# .iloc[:0, :]
 
 def fetchingData(datas):
-    datas = data[['first_name','last_name','ged']]
+    datas = data[['first_name','ged']] #laver et nyt DataFrame ud fra de "navne" du gere vil have
     df = datas.dropna()
 
     print(df)
+    return df
 
-def plottingTheData(fdata):
     
 
 
