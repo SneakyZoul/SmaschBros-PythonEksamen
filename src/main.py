@@ -2,8 +2,8 @@
 
 # Press ⌃R to execute it or replace it with your code.
 # Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
-from HadlingData import GettingData as gd
-from ShowingData import plottingData as pd
+from handlingdata import GettingData as getd
+from showingdata import plottingData as plotd
 
 
 def print_hi(name):
@@ -13,7 +13,7 @@ def print_hi(name):
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    gd.fetchingData()
-    pd.overall_plotting()
+    getd.fetching_data()
+    plotd.overall_plotting()
 
     #See PyCharm help at https://www.jetbrains.com/help/pycharm/
