@@ -14,6 +14,6 @@ def print_hi(name):
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     getd.fetching_data()
-    plotd.overall_plotting()
+    plotd.top3_plotting()
 
     #See PyCharm help at https://www.jetbrains.com/help/pycharm/

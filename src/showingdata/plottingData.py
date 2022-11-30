@@ -52,18 +52,18 @@ def plot_lost():
     plt.show()
 
 
-def overall_plotting():
+def top3_plotting():
     data = getd.fetching_data()
 
     x = np.arange(len(data['character'].tolist()))
     names = data['character'].tolist()
-    win_line = data['tournamentsWon'].tolist()
-    play_line = data['tournamentsPlayed'].tolist()
-    lost_line = data['tournamentsLost'].tolist()
+    first_place = data['firstPlaces'].tolist()
+    second_place = data['secondPlaces'].tolist()
+    third_place = data['thirdPlaces'].tolist()
 
-    plt.bar(x - 0.2, win_line, 0.2, color="#b2e061", edgecolor="#000000", label="Won")
-    plt.bar(x, play_line, 0.2, color="#7eb0d5", edgecolor="#000000", label="Played")
-    plt.bar(x + 0.2, lost_line, 0.2, color="#fd7f6f", edgecolor="#000000", label="Lost")
+    plt.bar(x - 0.2, first_place, 0.2, color="#FFD700", edgecolor="#000000", label="Won")
+    plt.bar(x, second_place, 0.2, color="#C0C0C0", edgecolor="#000000", label="Played")
+    plt.bar(x + 0.2, third_place, 0.2, color="#CD7F32", edgecolor="#000000", label="Lost")
 
     plt.ylabel("Amount", fontsize=45)
     plt.xlabel("Character Name", fontsize=45)
@@ -77,4 +77,4 @@ def overall_plotting():
 
 
 if __name__ == '__main__':
-    overall_plotting()
+    top3_plotting()
