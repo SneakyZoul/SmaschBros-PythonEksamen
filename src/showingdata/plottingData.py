@@ -61,9 +61,9 @@ def top3_plotting():
     second_place = data['secondPlaces'].tolist()
     third_place = data['thirdPlaces'].tolist()
 
-    plt.bar(x - 0.2, first_place, 0.2, color="#FFD700", edgecolor="#000000", label="Won")
-    plt.bar(x, second_place, 0.2, color="#C0C0C0", edgecolor="#000000", label="Played")
-    plt.bar(x + 0.2, third_place, 0.2, color="#CD7F32", edgecolor="#000000", label="Lost")
+    plt.bar(x - 0.25, first_place, 0.2, color="#FFD700", edgecolor="#FFD700", label="Won", linewidth=5)
+    plt.bar(x, second_place, 0.2, color="#C0C0C0", edgecolor="#C0C0C0", label="Played", linewidth=5)
+    plt.bar(x + 0.25, third_place, 0.2, color="#CD7F32", edgecolor="#CD7F32", label="Lost", linewidth=5)
 
     plt.ylabel("Amount", fontsize=45)
     plt.xlabel("Character Name", fontsize=45)
@@ -71,8 +71,10 @@ def top3_plotting():
     plt.legend(loc="upper right", fontsize=30)
     plt.yticks(fontsize=34)
     plt.xticks(x, names, rotation=45)
-    fig = plt.gcf()
-    fig.set_size_inches(100, 20)
+
+    current_fig = plt.gcf()
+    current_fig.set_size_inches(100, 20)
+    plt.tight_layout()
     plt.show()
 
 
