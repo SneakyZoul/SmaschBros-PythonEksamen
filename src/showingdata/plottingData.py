@@ -85,8 +85,6 @@ def top8_plotting():
     x = np.arange(len(data['character'].tolist()))
     names = data['character'].tolist()
 
-    # Make a list by cycling through the colors you care about
-    # to match the length of your data.
     my_colors = list(islice(cycle(['#FFD700', '#C0C0C0', '#CD7F32', '#20715b',
                                    '#20715b', '#20715b', '#20715b', '#20715b']), None, len(data)))
 
@@ -109,6 +107,37 @@ def top8_plotting():
     plt.show()
 
 
+def batch_plotting(characters):
+    data = getd.fetching_data()
+    batch_data = data[data.isin(characters).any(axis=1)]
+
+    x = np.arange(len(batch_data['character'].tolist()))
+    names = batch_data['character'].tolist()
+
+    my_colors = list(islice(cycle(['#FFD700', '#C0C0C0', '#CD7F32', '#20715b',
+                                   '#20715b', '#20715b', '#20715b', '#20715b']), None, len(batch_data)))
+
+    batch_data.plot(kind="bar", color=my_colors, edgecolor="#000000")
+
+    plt.ylabel("Amount", fontsize=45)
+    plt.xlabel("Character Name", fontsize=45)
+    plt.title("Tournament Data", fontsize=45)
+    plt.xticks(x, names, rotation=45)
+    plt.yticks(fontsize=34)
+    plt.legend(['First Place', 'Second Place', 'Third Place', 'Fourth Place',
+                'Fifth Place', 'Sixth Place', 'Seventh Place', 'Eighth Place'], loc="upper right", fontsize=30)
+
+    plt.tick_params(axis='x')
+
+    current_fig = plt.gcf()
+    current_fig.set_size_inches(100, 20)
+    plt.tight_layout()
+
+    plt.show()
+
+
 if __name__ == '__main__':
-    top3_plotting()
-    top8_plotting()
+    #top3_plotting()
+    #top8_plotting()
+    demo_list = ["Mario", "Luigi", "Bowser"]
+    batch_plotting(demo_list)
