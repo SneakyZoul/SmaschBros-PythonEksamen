@@ -85,8 +85,8 @@ def top8_plotting():
     x = np.arange(len(data['character'].tolist()))
     names = data['character'].tolist()
 
-    my_colors = list(islice(cycle(['#FFD700', '#C0C0C0', '#CD7F32', '#20715b',
-                                   '#20715b', '#20715b', '#20715b', '#20715b']), None, len(data)))
+    my_colors = list(islice(cycle(['#FFD700', '#C0C0C0', '#CD7F32', '#80c904',
+                                   '#73b504', '#66a103', '#5a8d03', '#4d7902']), None, 8))
 
     data.plot(kind="bar", color=my_colors, edgecolor="#000000")
 
@@ -107,30 +107,29 @@ def top8_plotting():
     plt.show()
 
 
-def batch_plotting(characters):
+def masked_plot(characters):
     data = getd.fetching_data()
-    batch_data = data[data.isin(characters).any(axis=1)]
+    mask = data['character'].isin(characters)
 
-    x = np.arange(len(batch_data['character'].tolist()))
-    names = batch_data['character'].tolist()
+    data = data[mask]
 
-    my_colors = list(islice(cycle(['#FFD700', '#C0C0C0', '#CD7F32', '#20715b',
-                                   '#20715b', '#20715b', '#20715b', '#20715b']), None, len(batch_data)))
+    x = np.arange(len(data['character'].tolist()))
+    names = data['character'].tolist()
 
-    batch_data.plot(kind="bar", color=my_colors, edgecolor="#000000")
+    my_colors = list(islice(cycle(['#FFD700', '#C0C0C0', '#CD7F32', '#80c904',
+                                   '#73b504', '#66a103', '#5a8d03', '#4d7902']), None, 8))
 
-    plt.ylabel("Amount", fontsize=45)
-    plt.xlabel("Character Name", fontsize=45)
-    plt.title("Tournament Data", fontsize=45)
+    data.plot(kind="bar", color=my_colors, edgecolor="#000000")
+
+    plt.ylabel("Amount")
+    plt.xlabel("Character Name")
+    plt.title("Tournament Data")
     plt.xticks(x, names, rotation=45)
-    plt.yticks(fontsize=34)
     plt.legend(['First Place', 'Second Place', 'Third Place', 'Fourth Place',
-                'Fifth Place', 'Sixth Place', 'Seventh Place', 'Eighth Place'], loc="upper right", fontsize=30)
+                'Fifth Place', 'Sixth Place', 'Seventh Place', 'Eighth Place'], loc="upper right")
 
     plt.tick_params(axis='x')
 
-    current_fig = plt.gcf()
-    current_fig.set_size_inches(100, 20)
     plt.tight_layout()
 
     plt.show()
@@ -138,6 +137,11 @@ def batch_plotting(characters):
 
 if __name__ == '__main__':
     #top3_plotting()
+
     #top8_plotting()
-    demo_list = ["Mario", "Luigi", "Bowser"]
-    batch_plotting(demo_list)
+
+    demo_list = ["Mario", "Luigi", "Roy", "Bowser", "Mewtwo", "Olimar", "Fox", "Joker"]
+    galler_mains = ['King K. Rool', 'Donkey Kong', 'Pikachu']
+    weinell_mains = ['King K. Rool', 'Captain Falcon', 'Steve']
+    masked_plot(galler_mains)
+    masked_plot(weinell_mains)
