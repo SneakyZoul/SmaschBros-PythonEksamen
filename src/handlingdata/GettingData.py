@@ -12,6 +12,7 @@ def fetching_data():
     df = datas.dropna()
     return df
 
+
 def fetching_images():
     paths = [
         os.path.join(ROOT_DIR, 'data/img', 'mario.png'),
