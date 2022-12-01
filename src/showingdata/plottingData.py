@@ -1,8 +1,18 @@
+import matplotlib.cbook
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 from itertools import cycle, islice
+
+import pylab as pl
+
 import handlingdata.GettingData as getd
+
+from matplotlib.offsetbox import OffsetImage, AnnotationBbox
+from matplotlib.cbook import get_sample_data
+import os
+from config.definitions import ROOT_DIR
+
 
 
 def plot_won():
@@ -96,7 +106,8 @@ def top8_plotting():
     plt.xticks(x, names, rotation=45)
     plt.yticks(fontsize=34)
     plt.legend(['First Place', 'Second Place', 'Third Place', 'Fourth Place',
-                'Fifth Place', 'Sixth Place', 'Seventh Place', 'Eighth Place'], loc="upper right", fontsize=30)
+                'Fifth Place', 'Sixth Place', 'Seventh Place', 'Eighth Place'],
+               loc="best", fontsize=30)
 
     plt.tick_params(axis='x')
 
@@ -126,12 +137,53 @@ def masked_plot(characters):
     plt.title("Tournament Data")
     plt.xticks(x, names, rotation=45)
     plt.legend(['First Place', 'Second Place', 'Third Place', 'Fourth Place',
-                'Fifth Place', 'Sixth Place', 'Seventh Place', 'Eighth Place'], loc="upper right")
+                'Fifth Place', 'Sixth Place', 'Seventh Place', 'Eighth Place'],
+               loc="best")
 
     plt.tick_params(axis='x')
 
     plt.tight_layout()
 
+    plt.show()
+
+
+def getImage(path, zoom=1):
+    return OffsetImage(plt.imread(path), zoom=zoom)
+
+
+def win_scatter():
+    data = getd.fetching_data()
+    images = getd.fetching_images()
+
+    x = np.arange(len(data['character'].tolist()))
+    names = data['character'].tolist()
+    y = data['firstPlaces']
+
+    fig, ax = plt.subplots()
+    ax.scatter(x, y)
+    ax.set_title("1st Place Data", fontsize=65)
+    ax.set_xlabel("Character Name", fontsize=65)
+    ax.set_ylabel("Amount", fontsize=65)
+    ax.set_xticks(x)
+    ax.set_xticklabels(names, rotation=75)
+
+    #
+    ax.spines['left'].set_linewidth(4)
+    ax.spines['right'].set_linewidth(4)
+    ax.spines['top'].set_linewidth(4)
+    ax.spines['bottom'].set_linewidth(4)
+
+    ax.tick_params(axis="x")
+
+    for x0, y0, icon in zip(x, y, images):
+        ab = AnnotationBbox(getImage(icon, 0.2), (x0, y0), frameon=False)
+        ax.add_artist(ab)
+
+    current_fig = plt.gcf()
+    current_fig.set_size_inches(50, 20)
+    current_fig.tight_layout()
+
+    plt.subplot()
     plt.show()
 
 
@@ -141,7 +193,7 @@ if __name__ == '__main__':
     #top8_plotting()
 
     demo_list = ["Mario", "Luigi", "Roy", "Bowser", "Mewtwo", "Olimar", "Fox", "Joker"]
-    galler_mains = ['King K. Rool', 'Donkey Kong', 'Pikachu']
-    weinell_mains = ['King K. Rool', 'Captain Falcon', 'Steve']
-    masked_plot(galler_mains)
-    masked_plot(weinell_mains)
+    versus_list = ["Captain Falcon", "Piranha Plant", "Joker"]
+    #masked_plot(versus_list)
+
+    win_scatter()
