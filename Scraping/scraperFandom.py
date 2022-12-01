@@ -1,6 +1,8 @@
+import os
 import pandas as pd
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from config.definitions import ROOT_DIR
 import re
 
 driver = webdriver.Firefox()
@@ -74,7 +76,7 @@ data = {
 
 # Create the DataFrame and save it to data.csv
 df = pd.DataFrame(data)
-df.to_csv("data.csv", encoding="utf-8", index = False)
+df.to_csv(os.path.join(ROOT_DIR, 'data', 'data.csv'), encoding="utf-8", index = False)
 print(df)
 
 # Close the browser
