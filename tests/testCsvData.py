@@ -3,10 +3,11 @@ import os
 import pandas as pd
 from config.definitions import ROOT_DIR
 
+data = pd.read_csv(os.path.join(ROOT_DIR, 'data', 'data.csv'))
+
 
 class TestCsvData(unittest.TestCase):
     def test_steve_csv_data(self):
-        data = pd.read_csv(os.path.join(ROOT_DIR, 'src', 'scraping', 'data.csv'))
         steve = (data[data['character'] == 'Steve'][['firstPlaces', 'secondPlaces']])
         steve_first_place = steve['firstPlaces'].item()
         steve_second_place = steve['secondPlaces'].item()
@@ -15,7 +16,6 @@ class TestCsvData(unittest.TestCase):
         self.assertEqual(expected, actual)
 
     def test_byleth_csv_data(self):
-        data = pd.read_csv(os.path.join(ROOT_DIR, 'src', 'scraping', 'data.csv'))
         byleth = (data[data['character'] == 'Byleth'][['firstPlaces', 'secondPlaces']])
         byleth_first_place = byleth['firstPlaces'].item()
         byleth_second_place = byleth['secondPlaces'].item()
@@ -24,7 +24,6 @@ class TestCsvData(unittest.TestCase):
         self.assertEqual(expected, actual)
 
     def test_wario_csv_data(self):
-        data = pd.read_csv(os.path.join(ROOT_DIR, 'src', 'scraping', 'data.csv'))
         wario = (data[data['character'] == 'Wario'][['firstPlaces', 'secondPlaces']])
         wario_first_place = wario['firstPlaces'].item()
         wario_second_place = wario['secondPlaces'].item()
@@ -33,7 +32,6 @@ class TestCsvData(unittest.TestCase):
         self.assertEqual(expected, actual)
 
     def test_shiek_csv_data(self):
-        data = pd.read_csv(os.path.join(ROOT_DIR, 'src', 'scraping', 'data.csv'))
         shiek = (data[data['character'] == 'Sheik'][['firstPlaces', 'secondPlaces']])
         shiek_first_place = shiek['firstPlaces'].item()
         shiek_second_place = shiek['secondPlaces'].item()
@@ -42,7 +40,6 @@ class TestCsvData(unittest.TestCase):
         self.assertEqual(expected, actual)
 
     def test_falco_csv_data(self):
-        data = pd.read_csv(os.path.join(ROOT_DIR, 'src', 'scraping', 'data.csv'))
         falco = (data[data['character'] == 'Falco'][['firstPlaces', 'secondPlaces']])
         falco_first_place = falco['firstPlaces'].item()
         falco_second_place = falco['secondPlaces'].item()
@@ -51,7 +48,6 @@ class TestCsvData(unittest.TestCase):
         self.assertEqual(expected, actual)
 
     def test_fox_csv_data(self):
-        data = pd.read_csv(os.path.join(ROOT_DIR, 'src', 'scraping', 'data.csv'))
         fox = (data[data['character'] == 'Fox'][['firstPlaces', 'secondPlaces']])
         fox_first_place = fox['firstPlaces'].item()
         fox_second_place = fox['secondPlaces'].item()
@@ -60,13 +56,13 @@ class TestCsvData(unittest.TestCase):
         self.assertEqual(expected, actual)
 
     def test_wolf_csv_data(self):
-        data = pd.read_csv(os.path.join(ROOT_DIR, 'src', 'scraping', 'data.csv'))
         wolf = (data[data['character'] == 'Wolf'][['firstPlaces', 'secondPlaces']])
         wolf_first_place = wolf['firstPlaces'].item()
         wolf_second_place = wolf['secondPlaces'].item()
         actual = [wolf_first_place, wolf_second_place]
         expected = [9, 7]
         self.assertEqual(expected, actual)
+
 
 if __name__ == '__main__':
     unittest.main()
