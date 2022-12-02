@@ -35,7 +35,7 @@ for imagePath in os.listdir(inputDir):
     # Resize image to a 32x32 square
     resized = cv2.resize(img, (32, 32), interpolation = cv2.INTER_AREA)
 
-    # Save image in the data
+    # Save resized image to the output folder
     cv2.imwrite(f"{args.outputFolder}/{fileName}_32x32{fileExtension}", resized)
 
     currentIndex += 1
