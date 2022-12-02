@@ -18,7 +18,7 @@ def get_images():
         #I dette loop køre vi igennem siden vi burger XPATH til fortælle at den skal tage elemnetet over den, altså parrentet
         #den sidste linje er til for at ligge og hente billederne ned
         name = img.find_element(By.XPATH, "..").get_attribute("title")
-        download_image("smash/",img.get_attribute("src"),name+".jpg")
+        download_image("smash/", img.get_attribute("src"),name+".jpg")
 
 
 def download_image(download_path, url, file_name):
