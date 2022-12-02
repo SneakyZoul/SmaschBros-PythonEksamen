@@ -13,7 +13,6 @@ currentIndex = 0
 
 inputDir = args.inputFolder
 
-
 # Create a new output directory if it doesn't exist
 if not os.path.exists(args.outputFolder):
    os.makedirs(args.outputFolder)
