@@ -2,6 +2,6 @@ numpy
 pandas
 matplotlib
 selenium
-#tensorflow
+# tensorflow
 keras
 # PyQt5
