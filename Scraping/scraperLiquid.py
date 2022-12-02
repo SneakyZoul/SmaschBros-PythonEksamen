@@ -1,6 +1,8 @@
+import os
 import pandas as pd
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from config.definitions import ROOT_DIR
 import threading
 import time
 
@@ -79,7 +81,7 @@ setInterval(getCharacterData, 1)
 
 # Read data.csv with character names
 characterPositionComplete = []
-df = pd.read_csv('data.csv')
+df = pd.read_csv(os.path.join(ROOT_DIR, 'data', 'data.csv'))
 
 for character in df["character"]:
     # Create a new 2d list with first value being the character name and the remaning slots being 1-8(+) placements
@@ -112,7 +114,7 @@ df = pd.DataFrame(characterPositionComplete, columns = [
     "eightPlusPlaces"
 ])
  
-df.to_csv("data.csv", encoding="utf-8", index = False)
+df.to_csv(os.path.join(ROOT_DIR, 'data', 'data.csv'), encoding="utf-8", index = False)
 print(df)
 
 # Close the browser
