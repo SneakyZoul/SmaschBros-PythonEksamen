@@ -1,0 +1,7 @@
+numpy
+pandas
+matplotlib
+selenium
+tensorflow
+keras
+# PyQt5
