@@ -1,17 +1,9 @@
 import matplotlib.cbook
 import numpy as np
 import matplotlib.pyplot as plt
-import pandas as pd
 from itertools import cycle, islice
-
-import pylab as pl
-
 import handlingdata.GettingData as getd
-
 from matplotlib.offsetbox import OffsetImage, AnnotationBbox
-from matplotlib.cbook import get_sample_data
-import os
-from config.definitions import ROOT_DIR
 
 
 def top3_plotting():
