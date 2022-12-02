@@ -4,5 +4,4 @@ matplotlib
 selenium
 tensorflow
 keras
-itertools
 # PyQt5
