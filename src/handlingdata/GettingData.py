@@ -1,7 +1,5 @@
 import os
-import numpy as np
 import pandas as pd
-import matplotlib as plt
 from config.definitions import ROOT_DIR
 
 data = pd.read_csv(os.path.join(ROOT_DIR, 'data', 'data.csv'))
