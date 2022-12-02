@@ -164,12 +164,12 @@ def win_scatter():
 
 
 if __name__ == '__main__':
-    # top3_plotting()
+    #top3_plotting()
 
     #top8_plotting()
 
     demo_list = ["Mario", "Luigi", "Roy", "Bowser", "Mewtwo", "Olimar", "Fox", "Joker"]
-    versus_list = ["Captain Falcon", "Piranha Plant", "Joker"]
-    masked_plot(versus_list)
+    versus_list = ["Captain Falcon", "Piranha Plant", "Joker", "ooga", "Bowser"]
+    #masked_plot(versus_list)
 
-    #win_scatter()
+    win_scatter()
