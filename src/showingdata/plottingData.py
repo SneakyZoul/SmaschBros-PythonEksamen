@@ -1,4 +1,3 @@
-import matplotlib.cbook
 import numpy as np
 import matplotlib.pyplot as plt
 from itertools import cycle, islice
@@ -33,7 +32,7 @@ def top3_plotting():
     plt.xticks(x, names, rotation=45)  # x = index, names = labels for xticks
 
     # Configures size of plot
-    current_fig = plt.gcf()
+    current_fig = plt.gcf()  # Get current figure
     current_fig.set_size_inches(100, 20)
     # Makes it neat
     plt.tight_layout()
@@ -68,7 +67,7 @@ def top8_plotting():
                loc="best", fontsize=30)
 
     # Configures size of plot
-    current_fig = plt.gcf()
+    current_fig = plt.gcf()  # Get current figure
     current_fig.set_size_inches(100, 20)
     # Makes the plot neat
     plt.tight_layout()
@@ -154,7 +153,7 @@ def win_scatter():
         ax.add_artist(ab)
 
     # Configures size of plot
-    current_fig = plt.gcf()
+    current_fig = plt.gcf()  # Get Current Figure
     current_fig.set_size_inches(50, 20)
 
     # Makes plot neat
@@ -173,4 +172,4 @@ if __name__ == '__main__':
     versus_list = ["Captain Falcon", "Piranha Plant", "Joker"]
     masked_plot(versus_list)
 
-# win_scatter()
+    #win_scatter()
