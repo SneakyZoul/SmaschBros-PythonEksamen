@@ -359,3 +359,7 @@ $RECYCLE.BIN/
 .idea
 
 # End of https://www.toptal.com/developers/gitignore/api/python,pycharm,macos,windows,linux
+/data/output/masked_plot.png
+/data/output/scatter_plot.png
+/data/output/top3_plot.png
+/data/output/top8_plot.png

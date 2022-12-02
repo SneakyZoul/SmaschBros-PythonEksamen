@@ -23,6 +23,5 @@ def making_a_dataframe(champ1):
 
     return df2
 
-
 if __name__ == '__main__':
     making_a_dataframe()

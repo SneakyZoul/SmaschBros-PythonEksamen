@@ -1,8 +1,10 @@
+import os
 import numpy as np
 import matplotlib.pyplot as plt
 from itertools import cycle, islice
 import src.handlingdata.GettingData as getd
 from matplotlib.offsetbox import OffsetImage, AnnotationBbox
+from config.definitions import ROOT_DIR
 
 
 def top3_plotting():
@@ -36,6 +38,7 @@ def top3_plotting():
     current_fig.set_size_inches(100, 20)
     # Makes it neat
     plt.tight_layout()
+    plt.savefig(os.path.join(ROOT_DIR, 'data/output', 'top3_plot.png'))
     plt.show()
 
 
@@ -72,6 +75,7 @@ def top8_plotting():
     # Makes the plot neat
     plt.tight_layout()
 
+    plt.savefig(os.path.join(ROOT_DIR, 'data/output', 'top8_plot.png'))
     plt.show()
 
 
@@ -108,6 +112,7 @@ def masked_plot(characters):
     # Makes plot neat
     plt.tight_layout()
 
+    plt.savefig(os.path.join(ROOT_DIR, 'data/output', 'masked_plot.png'))
     plt.show()
 
 
@@ -160,16 +165,17 @@ def win_scatter():
     current_fig.tight_layout()
 
     plt.subplot()
+    plt.savefig(os.path.join(ROOT_DIR, 'data/output', 'scatter_plot.png'))
     plt.show()
 
 
 if __name__ == '__main__':
-    #top3_plotting()
+    top3_plotting()
 
-    #top8_plotting()
+    top8_plotting()
 
     demo_list = ["Mario", "Luigi", "Roy", "Bowser", "Mewtwo", "Olimar", "Fox", "Joker"]
     versus_list = ["Captain Falcon", "Piranha Plant", "Joker", "ooga", "Bowser"]
-    #masked_plot(versus_list)
+    masked_plot(versus_list)
 
     win_scatter()
