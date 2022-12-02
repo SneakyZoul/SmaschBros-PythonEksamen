@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from itertools import cycle, islice
-import handlingdata.GettingData as getd
+import src.handlingdata.GettingData as getd
 from matplotlib.offsetbox import OffsetImage, AnnotationBbox
 
 
