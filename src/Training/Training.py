@@ -1,3 +1,5 @@
+import os
+
 import numpy
 import tensorflow as tf
 from tensorflow import keras
@@ -11,8 +13,12 @@ from keras.models import Sequential
 from keras.layers import Dense
 import numpy as np
 
+from config.definitions import ROOT_DIR
+from data import resizedImages
+import imageDataframe as im
 
 
+(x_train, y_train), (x_test, y_test) = im.get_images(os.path.join(ROOT_DIR, 'data', 'resizedImages'))
 (x_train, y_train), (x_test, y_test) = cifar10.load_data()
 #her finder vi ud af at den er 32X32
 image_index = 0
